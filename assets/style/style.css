@@ -175,7 +175,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: auto; /* Ensure this element is always clickable */
+  pointer-events: none; /* Allow clicks to pass through to the artwork display */
   transform-style: preserve-3d; /* This will contain the 3D transformed child */
   z-index: 3;
 }
