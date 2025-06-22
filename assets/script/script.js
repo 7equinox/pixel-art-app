@@ -909,6 +909,7 @@ function showSpeechBubble(text) {
 // Hide speech bubble
 function hideSpeechBubble() {
   elements.speechBubble.classList.add('hidden');
+  elements.artworkDisplay.classList.remove('active');
 
   if (APP_STATE.useCharacterImages) {
     stopInstructorTalkingAnimation();
@@ -916,7 +917,6 @@ function hideSpeechBubble() {
     // Reset placeholder instructor to neutral expression
     setTimeout(() => {
       renderInstructorSprite('neutral');
-      elements.artworkDisplay.classList.remove('active');
     }, 300);
   }
 }
