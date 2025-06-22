@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Art Appreciation | Interactive Classroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style/style.css">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-art-scene">
+      <div class="spotlight"></div>
+      <div class="art-frame">
+        <div class="mondrian-canvas">
+          <!-- Lines -->
+          <div class="line line-v1"></div>
+          <div class="line line-h1"></div>
+          <div class="line line-v2"></div>
+          <div class="line line-h2"></div>
+          <!-- Color Blocks -->
+          <div class="block block-red"></div>
+          <div class="block block-blue"></div>
+          <div class="block block-yellow"></div>
+        </div>
+      </div>
+      <div class="floor-reflection"></div>
+    </div>
+    <h1 class="loading-title">Pixel Art<br>Appreciation</h1>
+    <p class="loading-text" id="loadingText">Loading assets<span class="loading-dots"></span></p>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay">
+    <!-- Info panel -->
+    <div class="info-panel" id="infoPanel" style="display: none;">
+      <button class="close-btn" id="closeInfoBtn">✕</button>
+      <h3>ARTWORK DETAILS</h3>
+      <div class="artwork-info">
+        <div class="artwork-thumb" id="artworkThumb"></div>
+        <div class="artwork-details">
+          <h4 id="artworkTitle">Artwork Title</h4>
+          <p id="artworkArtist">Artist Name</p>
+          <p id="artworkYear">Year</p>
+          <p id="artworkFact">This is a fact about the artwork.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container scene-loading">
+    <!-- App Header -->
+    <header class="app-header">
+      <h1>Pixel Art Appreciation</h1>
+    </header>
+
+    <!-- Theme and Fullscreen Controls -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+      🌙
+    </button>
+    <button class="fullscreen-btn" id="fullscreenBtn" aria-label="Toggle fullscreen">
+      ⛶
+    </button>
+
+    <!-- Main Interactive Scene -->
+    <div class="classroom-scene pixel-art">
+      <!-- Whiteboard with artwork display -->
+      <div class="whiteboard">
+        <div class="artwork-display" id="artworkDisplay" tabindex="0" aria-label="Click to learn about this artwork">
+        </div>
+      </div>
+
+      <!-- Students row -->
+      <div class="students-row">
+        <div class="student" id="student1"></div>
+        <div class="student" id="student2"></div>
+        <div class="student" id="student3"></div>
+        <div class="student" id="student4"></div>
+        <div class="student" id="student5"></div>
+      </div>
+
+      <!-- Instructor character -->
+      <div class="instructor pixel-art" id="instructor"></div>
+
+      <!-- Speech bubble -->
+      <div class="speech-bubble hidden" id="speechBubble">
+        <p id="speechText"></p>
+      </div>
+    </div>
+
+    <!-- Controls Section -->
+    <div class="controls-section">
+      <div class="controls">
+        <button class="control-btn" id="prevBtn" aria-label="Previous artwork">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          PREV
+        </button>
+        <button class="control-btn" id="nextBtn" aria-label="Next artwork">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+          NEXT
+        </button>
+        <button class="control-btn" id="randomBtn" aria-label="Show random artwork">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+            <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+            <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          RANDOM
+        </button>
+        <button class="control-btn" id="refreshBtn" aria-label="Refresh current artwork">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 4v6h-6"></path>
+            <path d="M1 20v-6h6"></path>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          REFRESH
+        </button>
+        <button class="control-btn" id="infoBtn" aria-label="Show artwork information">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          INFO
+        </button>
+        <button class="control-btn" id="muteBtn" aria-label="Toggle sound">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="soundIcon">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          SOUND
+        </button>
+      </div>
+
+      <!-- Progress indicator -->
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/script/script.js"></script>
+</body>
+
+</html>

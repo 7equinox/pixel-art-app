@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "name": "Mona Lisa",
+    "artist": "Leonardo da Vinci",
+    "year": "c. 1503–1506",
+    "image": "assets/img/mona-lisa.png",
+    "facts": [
+      "Once hung as bathroom decoration in King Francis I's royal apartments, where steam damaged the paint and required restoration.",
+      "Leonardo never delivered the painting to the Giocondo family who commissioned it, keeping it with him until his death.",
+      "Leonardo worked on it intermittently for over 16 years, from 1503 until his death in 1519.",
+      "The painting was stolen in 1911 by Italian handyman Vincenzo Peruggia, who kept it hidden in his apartment for two years.",
+      "There's a contemporary copy at the Prado Museum in Madrid, painted by one of Leonardo's students sitting beside him brush-stroke by brush-stroke."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "The Starry Night",
+    "artist": "Vincent van Gogh",
+    "year": "1889",
+    "image": "assets/img/starry-night.png",
+    "facts": [
+      "The bright 'star' to the right of the cypress tree is actually the planet Venus, which was visible at dawn in 1889.",
+      "Van Gogh painted the view from his asylum window 21 times, but this is the only nighttime version.",
+      "Van Gogh considered the painting a failure and was critical of it in letters to his brother Theo.",
+      "Van Gogh's vivid use of yellow may have been caused by taking too much digitalis, a treatment for his epilepsy.",
+      "The painting was valued at an estimated $100 million and Van Gogh only sold one documented painting during his lifetime."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Campbell's Soup Cans",
+    "artist": "Andy Warhol",
+    "year": "1962",
+    "image": "assets/img/campbell-soup.png",
+    "facts": [
+      "Warhol ate Campbell's soup for lunch every day for 20 years, calling it 'the same thing over and over again'.",
+      "Created exactly 32 canvases representing every non-frozen Campbell's soup flavor available in 1962.",
+      "A rival gallery mocked the exhibition by displaying actual soup cans for 'two for 33 cents' versus Warhol's $100 paintings.",
+      "Dealer Irving Blum eventually bought back all sold pieces to keep the series together, paying Warhol $1,000 for the complete set.",
+      "The series was later sold to MoMA for upwards of $15 million after Blum kept them for 34 years."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "The Persistence of Memory",
+    "artist": "Salvador Dalí",
+    "year": "1931",
+    "image": "assets/img/persistence-memory.png",
+    "facts": [
+      "Dalí said the melting clocks were inspired by Camembert cheese melting in the sun, not Einstein's theory of relativity.",
+      "Despite its fame, the painting is only 9.5 x 13 inches—slightly larger than notebook paper.",
+      "The ants covering the orange clock symbolize decay and death, a motif Dalí used throughout his career.",
+      "Dalí was only 28 years old when he painted this masterpiece in 1931."
+    ]
+  },
+  {
+    "id": 5,
+    "name": "The Great Wave off Kanagawa",
+    "artist": "Hokusai",
+    "year": "c. 1830–1832",
+    "image": "assets/img/the-great-wave-off-kanagawa.png",
+    "facts": [
+      "Hokusai changed his name more than 30 times throughout his career, signing this work 'From the brush of Hokusai, who changed his name to Iitsu'.",
+      "Originally cost the equivalent of a noodle soup and was mass-produced for the growing Japanese middle class.",
+      "Used newly imported Prussian blue pigment, which was much more concentrated and potent than traditional Japanese blues.",
+      "The wave measures between 32-39 feet (10-12 meters) high, calculated using the boats as reference scale.",
+      "Shows three oshiokuri-bune (fast fish transport boats) with 30 men total, though only 22 are visible in the composition."
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Composition with Red, Blue and Yellow",
+    "artist": "Piet Mondrian",
+    "year": "1930",
+    "image": "assets/img/composition-with-rby.png",
+    "facts": [
+      "Mondrian intentionally left visible brushstrokes on the canvas, imbuing the geometric work with a human touch.",
+      "The black lines are treated as planes of pigment themselves, sometimes stopping short of the canvas edges to create dynamic tension.",
+      "The large red square is carefully balanced by smaller blue and yellow rectangles, demonstrating harmony through asymmetry.",
+      "This style, which Mondrian called 'Neoplasticism', aimed to express universal harmony through primary colors and straight lines."
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Girl with a Pearl Earring",
+    "artist": "Johannes Vermeer",
+    "year": "c. 1665",
+    "image": "assets/img/girl-w-pearl-ear.png",
+    "facts": [
+      "This painting is a 'tronie'—a Dutch term for a character study of an imaginary figure, not a specific person.",
+      "The artwork is often called the 'Mona Lisa of the North' due to the subject's enigmatic and captivating expression.",
+      "Some experts believe the famous pearl earring might not be a real pearl, but rather polished tin or glass.",
+      "Vermeer used ultramarine for the blue turban, a pigment that was more expensive than gold in the 17th century."
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Sunflowers",
+    "artist": "Vincent van Gogh",
+    "year": "1888",
+    "image": "assets/img/sunflower.png",
+    "facts": [
+      "This is one of at least 11 paintings Van Gogh created of sunflowers, which he chose for their 'coarse and unrefined' beauty.",
+      "He originally painted the series to decorate the 'Yellow House' in Arles for his friend and fellow artist, Paul Gauguin.",
+      "For Van Gogh, the sunflowers were a symbol of 'gratitude'.",
+      "Despite their fame today, Van Gogh never sold any of his sunflower paintings during his lifetime."
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Royal Red and Blue",
+    "artist": "Mark Rothko",
+    "year": "1954",
+    "image": "assets/img/royal-red-n-blue.png",
+    "facts": [
+      "The painting exemplifies Rothko's signature style of using large, soft-edged blocks of color to evoke deep emotional responses.",
+      "He insisted his paintings be displayed in dim lighting and viewed up close to create an immersive, spiritual experience.",
+      "Rothko did not see his works as decorative; he wanted viewers to have a powerful, personal encounter with them.",
+      "The intense red and deep blue fields create a dramatic contrast that invites meditative contemplation."
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Three Musicians",
+    "artist": "Pablo Picasso",
+    "year": "1921",
+    "image": "assets/img/three-musicians.png",
+    "facts": [
+      "The three figures are believed to be a tribute to Picasso (the Harlequin) and his two poet friends, Guillaume Apollinaire and Max Jacob.",
+      "The painting serves as a memorial, as Apollinaire had died and Jacob had recently entered a monastery.",
+      "Although it's an oil painting, it was designed to look like a collage of cut-out paper, a style known as Synthetic Cubism.",
+      "Picasso actually painted two almost identical versions of 'Three Musicians' in the summer of 1921."
+    ]
+  }
+] 
