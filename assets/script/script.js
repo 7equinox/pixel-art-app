@@ -1516,7 +1516,7 @@ function showTips() {
     "Use the arrow keys to navigate between artworks.",
     "Press 'M' to toggle sound on/off.",
     "Press 'F' to enter fullscreen mode.",
-    "Press 'I' to view more information about the current artwork.",
+    "Press 'I' to view complete information about the current artwork.",
     "Press 'R' for a random artwork.",
     "Press 'E' to refresh the artwork.",
     "Press 'T' to toggle dark/light mode."
