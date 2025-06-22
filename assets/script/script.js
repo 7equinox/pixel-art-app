@@ -402,6 +402,8 @@ const AUDIO_SAMPLES = {
 const elements = {
   loadingScreen: document.getElementById('loadingScreen'),
   loadingText: document.getElementById('loadingText'),
+  disclaimerPanel: document.getElementById('disclaimerPanel'),
+  proceedBtn: document.getElementById('proceedBtn'),
   artworkDisplay: document.getElementById('artworkDisplay'),
   speechBubble: document.getElementById('speechBubble'),
   speechText: document.getElementById('speechText'),
@@ -585,17 +587,27 @@ function simulateLoading() {
         elements.loadingText.innerHTML = 'Click to Start';
         elements.loadingScreen.classList.add('ready');
 
-        elements.loadingScreen.addEventListener('click', () => {
-          // This click serves as the user gesture to unlock audio.
-          initAudio();
-          elements.loadingScreen.classList.add('fade-out');
+        const showDisclaimer = () => {
+          // Add class to trigger animations for hiding loading text/art
+          elements.loadingScreen.classList.add('show-disclaimer');
+          // Show the disclaimer panel
+          elements.disclaimerPanel.style.display = 'flex';
 
-          setTimeout(() => {
-            elements.loadingScreen.style.display = 'none'; // Remove from layout
-            resolve(); // Continue with app initialization
-          }, 1000); // Match fade-out duration
-        }, { once: true });
+          // Listen for a click on the proceed button
+          elements.proceedBtn.addEventListener('click', () => {
+            // This click serves as the user gesture to unlock audio.
+            initAudio();
+            elements.loadingScreen.classList.add('fade-out');
 
+            setTimeout(() => {
+              elements.loadingScreen.style.display = 'none'; // Remove from layout
+              resolve(); // Continue with app initialization
+            }, 1000); // Match fade-out duration
+          }, { once: true });
+        };
+        
+        // Listen for the initial click on the loading screen to show the disclaimer
+        elements.loadingScreen.addEventListener('click', showDisclaimer, { once: true });
       }
     }, 300);
   });

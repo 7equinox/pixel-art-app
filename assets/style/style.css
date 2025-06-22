@@ -17,6 +17,8 @@
   --loading-spotlight-end: rgba(16, 12, 15, 0);
   --loading-title: var(--text-primary);
   --loading-text: var(--text-secondary);
+  --pulse-text-color: #fff;
+  --pulse-glow-color: #fff;
 
   /* Spacing */
   --space-xs: 0.25rem;
@@ -726,15 +728,15 @@ img {
 }
 
 .loading-screen.ready .loading-text {
-  color: #fff;
-  text-shadow: 0 0 5px #fff, 0 0 10px var(--accent-primary);
+  color: var(--pulse-text-color);
+  text-shadow: 0 0 5px var(--pulse-glow-color), 0 0 10px var(--accent-primary);
   cursor: pointer;
   animation: pulse-text 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes pulse-text {
-  from { transform: scale(1); text-shadow: 0 0 5px #fff, 0 0 10px var(--accent-primary); }
-  to { transform: scale(1.05); text-shadow: 0 0 10px #fff, 0 0 20px var(--accent-primary); }
+  from { transform: scale(1); text-shadow: 0 0 5px var(--pulse-glow-color), 0 0 10px var(--accent-primary); }
+  to { transform: scale(1.05); text-shadow: 0 0 10px var(--pulse-glow-color), 0 0 20px var(--accent-primary); }
 }
 
 .loading-dots::after {
@@ -788,6 +790,8 @@ img {
   --loading-spotlight-end: rgba(232, 232, 232, 0);
   --loading-title: #2c2c2c;
   --loading-text: #555555;
+  --pulse-text-color: var(--text-primary);
+  --pulse-glow-color: var(--accent-primary);
 }
 
 /* Responsive design */
@@ -914,4 +918,76 @@ img {
 .app-container.scene-loading .controls-section {
   transform: translateY(-30px);
   opacity: 0;
+}
+
+/* New styles for when disclaimer is shown */
+.loading-screen.show-disclaimer .loading-art-scene,
+.loading-screen.show-disclaimer .loading-title,
+.loading-screen.show-disclaimer .loading-text {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Disclaimer Panel */
+.disclaimer-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 80%;
+  max-width: 600px;
+  padding: var(--space-xl);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-up 0.5s 0.2s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.disclaimer-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.8rem;
+  color: var(--accent-secondary);
+  margin-bottom: var(--space-md);
+  text-shadow: 0 0 10px var(--accent-secondary);
+}
+
+.disclaimer-text {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.proceed-btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.proceed-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(138, 92, 245, 0.6);
+  background-color: var(--accent-secondary);
 }
