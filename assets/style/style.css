@@ -170,7 +170,7 @@ img {
 .students-row {
   position: absolute;
   bottom: 5%;
-  /* left: 2% */
+  left: 4%;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -220,6 +220,15 @@ img {
 .student img, .instructor img {
   width: auto;
   height: 100%;
+  image-rendering: pixelated; /* Keeps pixel art sharp */
+}
+
+.student img {
+  display: block;
+  margin-left: 20%;
+  margin-right: 0;
+  width: auto;
+  height: 140%;
   image-rendering: pixelated; /* Keeps pixel art sharp */
 }
 
