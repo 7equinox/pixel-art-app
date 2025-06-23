@@ -148,13 +148,13 @@ img {
   overflow: hidden;
   margin: auto;
   background: url('../background/classroom.JPG') no-repeat;
-  background-size: 140%;
-  background-position: center 25%;
+  background-size: 120%;
+  background-position: center 38%;
 }
 
 .whiteboard {
   position: absolute;
-  top: 8.1%;
+  top: 9.1%;
   left: 19.75%;
   width: calc(145px * var(--pixel-scale));
   height: calc(63.5px * var(--pixel-scale));
@@ -204,10 +204,10 @@ img {
 
 .instructor {
   position: absolute;
-  bottom: 12%;
-  right: -5%;
+  bottom: 4%;
+  right: -1%;
   width: calc(100px * var(--pixel-scale));
-  height: calc(120px * var(--pixel-scale));
+  height: calc(140px * var(--pixel-scale));
   z-index: 0;
   transition: transform var(--speed-normal) ease;
   background-color: transparent;
@@ -801,6 +801,24 @@ img {
   --loading-text: #555555;
   --pulse-text-color: var(--text-primary);
   --pulse-glow-color: var(--accent-primary);
+}
+
+/* Info button */
+.info-btn {
+  position: absolute;
+  top: calc(var(--space-md) + 2.00rem + var(--space-xs) + var(--space-sm));
+  right: calc(var(--space-md) - var(--space-xs));
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 101;
+  transition: color var(--speed-fast) ease;
+}
+
+.info-btn:hover {
+  color: var(--accent-primary);
 }
 
 /* Responsive design */

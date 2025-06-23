@@ -426,6 +426,9 @@ const elements = {
   fullscreenBtn: document.getElementById('fullscreenBtn'),
   closeInfoBtn: document.getElementById('closeInfoBtn'),
   modalOverlay: document.getElementById('modalOverlay'),
+  infoBtnTop:     document.getElementById('infoBtnTop'),
+  groupPanel: document.getElementById('groupPanel'),
+  closeGroupBtn: document.getElementById('closeGroupBtn'),
   students: [
     document.getElementById('student1'),
     document.getElementById('student2'),
@@ -636,7 +639,27 @@ function setupEventListeners() {
   elements.modalOverlay.addEventListener('click', event => {
     if (event.target === elements.modalOverlay) {
       closeInfoPanel();
+      elements.groupPanel.style.display = 'none';
+      elements.modalOverlay.classList.remove('active');
     }
+  });
+
+  // Open “Group Members” modal
+  elements.infoBtnTop.addEventListener('click', () => {
+    // hide the artwork info if it happens to be open
+    elements.infoPanel.style.display = 'none';
+
+    // show the group list
+    elements.groupPanel.style.display = 'block';
+    elements.modalOverlay.classList.add('active');
+    playSound('click');
+  });
+
+  // Close “Group Members” modal
+  elements.closeGroupBtn.addEventListener('click', () => {
+    elements.groupPanel.style.display = 'none';
+    elements.modalOverlay.classList.remove('active');
+    playSound('click');
   });
 
   // Add a global click listener to close the speech bubble
