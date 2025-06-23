@@ -382,6 +382,7 @@ const APP_STATE = {
   historyPosition: -1,
   isMuted: false,
   isInfoPanelVisible: false,
+  isGroupPanelVisible: false,
   isThemeDark: true,
   audioVolume: 0.5,
   isFullscreen: false
@@ -395,7 +396,7 @@ const AUDIO_SAMPLES = {
   hover: { frequency: 1200, duration: 0.05 },
   next: { frequency: 660, duration: 0.1, type: 'triangle' },
   speech: { frequency: 330, duration: 0.15, type: 'sine' },
-  ambience: { url: 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAAbAAWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/////////////////////////////////AAAAAExhdmM1OC4xMy4xMDAAAAAAAAAAAAAAAAD/4zLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAADAABgsABJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUmEhISEhISEhISEhISEhISEhISEhISEhISEvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vP////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAZJAAAAAAAAYLBJWlMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+MYxAANQAbGeUEQAAJ3gBjP6EQAAAJOD5R0HygIAmD5+sEHLx+XjAABBHz9YIPnw+XhAwCIPn6wQfPh8uCAMvpAgZeICAoBlwQMvHxAQBAMuD5l4gICAgCYPnxAy8QEBAEATPh8y8QEBQDAIPnwQMvEBAUAwBMHz4IGXiAgJ8NbMmFvcgBMMGjJT5Y3AZewzcD3/Xb53ne91vMQBAyZP1NolJCdFIlC0QkDJlNolPYY3AZ+wz8D/vXv+d53vdb0M/YaQR//3vbdX4Z+w0hP/+MYxBkcMeLGeUEYAMaQn+973W8xAMeGfL1NolJDf2MFQM+XqbQ7BJDHxkaAz5eptDsEnO3WhoDLhmy9TaJSQ39jBYfFXqbRKSG/sYLAZcM/XqcRKVFvYwVAz5eptDsEmMaGRoDPhny9TaHYJMY0MjQXDAEK9TaJSQ39jBYDLhny9TaJSQ39jBYAGXqbRKVFfYwcAz5eptDsEkMfGRoDPhny9//+MYxCkUWWa+WYIwAMkw0NDQGfL1NodgkxjQyNAZ8M+XqbQ7BJjGhkaAz4Z8vU2h2CTGNDQy+YMZHS1KjkdJrR9HyL1i7i9D5YxkdLUpOR0mtI0fJvWLuL0PijGR0tSk5HSa0jQ8m9Yu4vQ+iMZHT1KjkdJrR9HyMVi7i9D5IxkdPUqOQ0mtH0fIxWLuL0BvU0SmIFTQ7AWR3tOJkQonW6tSRKYgVNJsBZHa04mRCidbq1JEpiBU0OwFkd7UZEKJxurUkSmIlTQ7AWR3tOJkQon/+MYxEcZkWa6OcE4AMna6tSRKYgVNJsBZHe1GRCidbq1REpiBU0mwFkd7TiZEKJxurUkSmIFTSbAWR3tOJkQonG6tSRKYgVNJsBZHe04mRCidbq1JEpiBU0mwFkd7UZEKJxurUkSmIFTSbAWR3tRkQonG6tSRKYgVNJsBZHe04mRCidbq1JEpiBU0mwFkd7TiZEKJxurUkSmIFTSbAWR3tOJkQonW6tSRKYgVNJsBZHe1GRCidbq1JEpiBU0mwFkd7UZEKJxurUkSmIFTSbAWR3tRkQonG6tSRKYgVNJsBZHe04mRCidbq1JEpiBU0mwAAAAAAAAAAAAAAAAAA=' }
+  ambience: { url: 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAAbAAWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMD/////////////////////////////////AAAAAExhdmM1OC4xMy4xMDAAAAAAAAAAAAAAAAD/4zLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAADAABgsABJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUmEhISEhISEhISEhISEhISEhISEhISEvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vP////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAZJAAAAAAAAYLBJWlMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+MYxAANQAbGeUEQAAJ3gBjP6EQAAAJOD5R0HygIAmD5+sEHLx+XjAABBHz9YIPnw+XhAwCIPn6wQfPh8uCAMvpAgZeICAoBlwQMvHxAQBAMuD5l4gICAgCYPnxAy8QEBAEATPh8y8QEBQDAIPnwQMvEBAUAwBMHz4IGXiAgJ8NbMmFvcgBMMGjJT5Y3AZewzcD3/Xb53ne91vMQBAyZP1NolJCdFIlC0QkDJlNolPYY3AZ+wz8D/vXv+d53vdb0M/YaQR//3vbdX4Z+w0hP/+MYxBkcMeLGeUEYAMaQn+973W8xAMeGfL1NolJDf2MFQM+XqbQ7BJDHxkaAz5eptDsEnO3WhoDLhmy9TaJSQ39jBYfFXqbRKSG/sYLAZcM/XqcRKVFvYwVAz5eptDsEmMaGRoDPhny9TaHYJMY0MjQXDAEK9TaJSQ39jBYDLhny9TaJSQ39jBYAGXqbRKVFfYwcAz5eptDsEkMfGRoDPhny9//+MYxCkUWWa+WYIwAMkw0NDQGfL1NodgkxjQyNAZ8M+XqbQ7BJjGhkaAz4Z8vU2h2CTGNDQy+YMZHS1KjkdJrR9HyL1i7i9D5YxkdLUpOR0mtI0fJvWLuL0PijGR0tSk5HSa0jQ8m9Yu4vQ+iMZHT1KjkdJrR9HyMVi7i9D5IxkdPUqOQ0mtH0fIxWLuL0BvU0SmIFTQ7AWR3tOJkQonW6tSRKYgVNJsBZHa04mRCidbq1JEpiBU0OwFkd7UZEKJxurUkSmIlTQ7AWR3tOJkQon/+MYxEcZkWa6OcE4AMna6tSRKYgVNJsBZHe1GRCidbq1REpiBU0mwFkd7TiZEKJxurUkSmIFTSbAWR3tOJkQonG6tSRKYgVNJsBZHe04mRCidbq1JEpiBU0mwFkd7UZEKJxurUkSmIFTSbAWR3tRkQonG6tSRKYgVNJsBZHe04mRCidbq1JEpiBU0mwFkd7TiZEKJxurUkSmIFTSbAWR3tOJkQonW6tSRKYgVNJsBZHe1GRCidbq1JEpiBU0mwFkd7UZEKJxurUkSmIFTSbAWR3tRkQonG6tSRKYgVNJsBZHe04mRCidbq1JEpiBU0mwAAAAAAAAAAAAAAAAAA=' }
 };
 
 // DOM Elements
@@ -426,7 +427,7 @@ const elements = {
   fullscreenBtn: document.getElementById('fullscreenBtn'),
   closeInfoBtn: document.getElementById('closeInfoBtn'),
   modalOverlay: document.getElementById('modalOverlay'),
-  infoBtnTop:     document.getElementById('infoBtnTop'),
+  membersBtn:     document.getElementById('membersBtn'),
   groupPanel: document.getElementById('groupPanel'),
   closeGroupBtn: document.getElementById('closeGroupBtn'),
   students: [
@@ -533,7 +534,7 @@ async function initApp() {
       // So it starts after 0.5s and ends at 1.3s. Let's start our animation at 1.3s.
       setTimeout(() => {
         displayArtworkByIndex(0);
-      }, 1300); 
+      }, 750); 
 
       startIdleAnimations();
       animateStudents();
@@ -599,20 +600,22 @@ function simulateLoading() {
           // Listen for a click on the proceed button
           elements.proceedBtn.addEventListener('click', () => {
             // This click serves as the user gesture to unlock audio.
-            initAudio();
+            if (!audioContext) {
+              initAudio();
+            }
             elements.loadingScreen.classList.add('fade-out');
 
             setTimeout(() => {
               elements.loadingScreen.style.display = 'none'; // Remove from layout
               resolve(); // Continue with app initialization
-            }, 1000); // Match fade-out duration
+            }, 500); // Match fade-out duration
           }, { once: true });
         };
         
         // Listen for the initial click on the loading screen to show the disclaimer
         elements.loadingScreen.addEventListener('click', showDisclaimer, { once: true });
       }
-    }, 300);
+    }, 150);
   });
 }
 
@@ -639,27 +642,7 @@ function setupEventListeners() {
   elements.modalOverlay.addEventListener('click', event => {
     if (event.target === elements.modalOverlay) {
       closeInfoPanel();
-      elements.groupPanel.style.display = 'none';
-      elements.modalOverlay.classList.remove('active');
     }
-  });
-
-  // Open “Group Members” modal
-  elements.infoBtnTop.addEventListener('click', () => {
-    // hide the artwork info if it happens to be open
-    elements.infoPanel.style.display = 'none';
-
-    // show the group list
-    elements.groupPanel.style.display = 'block';
-    elements.modalOverlay.classList.add('active');
-    playSound('click');
-  });
-
-  // Close “Group Members” modal
-  elements.closeGroupBtn.addEventListener('click', () => {
-    elements.groupPanel.style.display = 'none';
-    elements.modalOverlay.classList.remove('active');
-    playSound('click');
   });
 
   // Add a global click listener to close the speech bubble
@@ -940,7 +923,7 @@ function hideSpeechBubble() {
     // Reset placeholder instructor to neutral expression
     setTimeout(() => {
       renderInstructorSprite('neutral');
-    }, 300);
+    }, 150);
   }
 }
 
@@ -953,7 +936,7 @@ function displayArtworkByIndex(index) {
     const currentArtworkElement = artworkContainer.children[0];
     const isInitialLoad = !currentArtworkElement;
 
-    const transitionDuration = 250; // A faster transition, as requested
+    const transitionDuration = 150; // A faster transition, as requested
 
     const showNewArtwork = () => {
         // Update state and UI content
@@ -1022,7 +1005,7 @@ function closeInfoPanel() {
 
   setTimeout(() => {
     elements.infoPanel.style.display = 'none';
-  }, 300);
+  }, 100);
 
   // Play sound
   playSound('click');
@@ -1088,7 +1071,7 @@ function handleRefreshClick() {
     // Re-render the current artwork for a fresh look
     renderArtwork(APP_STATE.artworks[APP_STATE.currentArtworkIndex]);
     playSound('click');
-  }, 300);
+  }, 150);
 }
 
 // Toggle mute state
@@ -1132,6 +1115,9 @@ function toggleMute() {
 
 // Toggle between dark and light themes
 function toggleTheme() {
+  if (!audioContext) {
+    initAudio();
+  }
   APP_STATE.isThemeDark = !APP_STATE.isThemeDark;
 
   if (APP_STATE.isThemeDark) {
@@ -1147,6 +1133,9 @@ function toggleTheme() {
 
 // Toggle fullscreen mode
 function toggleFullscreen() {
+  if (!audioContext) {
+    initAudio();
+  }
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen().then(() => {
       APP_STATE.isFullscreen = true;
@@ -1210,6 +1199,14 @@ function handleKeyNavigation(e) {
         toggleInfoPanel();
       }
       elements.infoBtn.focus();
+      break;
+    case 'g':
+      if (APP_STATE.isGroupPanelVisible) {
+        closeGroupPanel();
+      } else {
+        openGroupPanel();
+      }
+      elements.membersBtn.focus();
       break;
     case 'm':
       toggleMute();
@@ -1542,7 +1539,8 @@ function showTips() {
     "Press 'I' to view complete info about the current artwork.",
     "Press 'R' for a random artwork.",
     "Press 'E' to refresh the artwork.",
-    "Press 'T' to toggle dark/light mode."
+    "Press 'T' to toggle dark/light mode.",
+    "Press 'G' to view the group members.",
   ];
 
   let tipIndex = 0;
@@ -1559,6 +1557,30 @@ function showTips() {
   setTimeout(showNextTip, 3000);
 }
 
+// New functions for group panel - moved to global scope for keybinding access
+const openGroupPanel = () => {
+  // This click can serve as the user gesture to unlock audio.
+  if (!audioContext) {
+    initAudio();
+  }
+  // ensure the other panel is closed
+  elements.infoPanel.style.display = 'none';
+
+  elements.groupPanel.style.display = 'block';
+  elements.modalOverlay.classList.add('active');
+  APP_STATE.isGroupPanelVisible = true;
+  playSound('click');
+};
+
+const closeGroupPanel = () => {
+  elements.modalOverlay.classList.remove('active');
+  APP_STATE.isGroupPanelVisible = false;
+  setTimeout(() => {
+    elements.groupPanel.style.display = 'none';
+  }, 100);
+  playSound('click');
+};
+
 // The entry point when the page loads.
 window.addEventListener('DOMContentLoaded', () => {
   // Disable the right-click context menu across the entire document
@@ -1568,6 +1590,18 @@ window.addEventListener('DOMContentLoaded', () => {
   elements.themeToggle.addEventListener('click', toggleTheme);
   elements.fullscreenBtn.addEventListener('click', toggleFullscreen);
   document.addEventListener('keydown', handleKeyNavigation);
+
+  // --- Group Panel Logic (functional from start) ---
+  elements.membersBtn.addEventListener('click', openGroupPanel);
+  elements.closeGroupBtn.addEventListener('click', closeGroupPanel);
+  // Make overlay click close the group panel as well
+  elements.modalOverlay.addEventListener('click', (e) => {
+    if (e.target === elements.modalOverlay) {
+      closeGroupPanel();
+      closeInfoPanel();
+    }
+  });
+  // --- End Group Panel Logic ---
 
   initApp();
   addButtonHoverEffects();
