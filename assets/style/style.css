@@ -530,6 +530,55 @@ img {
   text-align: center;
 }
 
+/* Group Members List as a responsive grid of cards */
+.group-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+/* Each member “card” */
+.group-list li {
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--accent-secondary);
+  border-radius: 8px;
+  padding: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Avatar placeholder */
+.member-avatar {
+  width: calc(24px * var(--pixel-scale));
+  height: calc(24px * var(--pixel-scale));
+  background-color: var(--accent-secondary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Text container */
+.member-info {
+  display: flex;
+  flex-direction: column;
+  font-family: 'VT323', monospace;
+  color: var(--text-primary);
+}
+
+/* Name and role styling */
+.member-name {
+  font-weight: bold;
+  font-size: calc(7px * var(--pixel-scale));
+}
+
+.member-role {
+  font-size: calc(5px * var(--pixel-scale));
+  color: var(--text-secondary);
+}
+
 .artwork-info {
   display: flex;
   align-items: flex-start;
