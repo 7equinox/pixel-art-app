@@ -575,6 +575,7 @@ img {
 }
 
 .member-role {
+  margin-left: var(--space-sm);
   font-size: calc(5px * var(--pixel-scale));
   color: var(--text-secondary);
 }
