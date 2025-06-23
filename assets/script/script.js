@@ -552,9 +552,9 @@ function setupClassroom() {
   if (APP_STATE.useCharacterImages) {
     // If real images were loaded, use them.
     elements.students.forEach((studentEl, index) => {
-      studentEl.innerHTML = `<img src="${APP_STATE.characterImagePaths.students[index]}" alt="Student ${index + 1}">`;
+      studentEl.innerHTML = `<img src="${APP_STATE.characterImagePaths.students[index]}" alt="Student ${index + 1}" draggable="false">`;
     });
-    elements.instructor.innerHTML = `<img src="${APP_STATE.characterImagePaths.instructor}" alt="Instructor">`;
+    elements.instructor.innerHTML = `<img src="${APP_STATE.characterImagePaths.instructor}" alt="Instructor" draggable="false">`;
     elements.instructor.classList.add('image-idle'); // Add idle animation
   } else {
     // Otherwise, render the placeholder sprites.
@@ -847,6 +847,7 @@ function renderImageOrPixels(container, artwork) {
     const img = document.createElement('img');
     img.src = artwork.image;
     img.alt = artwork.name;
+    img.draggable = false;
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'contain';
