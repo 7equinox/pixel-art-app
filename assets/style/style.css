@@ -189,6 +189,7 @@ img {
   background-color: transparent;
   z-index: 0;
   pointer-events: none; /* Allow clicks to pass through */
+  will-change: transform;
 }
 
 #student2 {
